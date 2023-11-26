@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIapod.Views.AboutPage"
+             xmlns:vm="clr-namespace:APIapod.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="darkblue">#0582ca</Color>
+            <Color x:Key="blue">#00a6fb</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentView  VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="{StaticResource blue}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <Label
+                    BackgroundColor="{StaticResource darkblue}"
+                    x:Name="resultlabel"  
+                    FontSize="30" 
+                    TextColor="White" 
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" 
+                    TextTransform="Uppercase" 
+                    FontAttributes="Bold"/>
+                <Image x:Name="URLImage"  VerticalOptions="Start" HeightRequest="300" Aspect="AspectFill"/>
+                <Label
+                    TextColor="White"
+                    x:Name="explain"
+                    FontSize="20"
+                    Padding="15"/>
+            </StackLayout>
+         </ScrollView>
+    </ContentView>
+        
+
+</ContentPage>
