@@ -8,14 +8,11 @@ namespace APIapod.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
-        readonly List<Item> items;
+        public static List<Item> items;
 
         public MockDataStore()
         {
-            items = new List<Item>()
-            {
-                
-            };
+            items = App.items;
         }
 
         public async Task<bool> AddItemAsync(Item item)

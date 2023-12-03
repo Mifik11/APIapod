@@ -1,4 +1,5 @@
 ﻿using APIapod.Models;
+using APIapod.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,7 @@ namespace APIapod.ViewModels
     {
         private string text;
         private string description;
+        private string url;
 
         public NewItemViewModel()
         {
@@ -37,6 +39,11 @@ namespace APIapod.ViewModels
             get => description;
             set => SetProperty(ref description, value);
         }
+        public string Url
+        {
+            get => url;
+            set => SetProperty(ref url, value);
+        }
 
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
@@ -53,13 +60,15 @@ namespace APIapod.ViewModels
             {
                 Id = Guid.NewGuid().ToString(),
                 Text = Text,
-                Description = Description
+                Description = Description,
+                Url = AboutPage.UrlInString
             };
 
             await DataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
+            App.SaveAll();
         }
     }
 }

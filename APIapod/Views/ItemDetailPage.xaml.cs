@@ -10,6 +10,7 @@ namespace APIapod.Views
         {
             InitializeComponent();
             BindingContext = new ItemDetailViewModel();
+            
         }
     }
 }
